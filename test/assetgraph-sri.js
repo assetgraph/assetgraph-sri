@@ -17,7 +17,7 @@ describe('assetgraph-sri', function() {
       });
       await assetGraph.loadAssets('index.html');
       await assetGraph.populate();
-      await assetGraphSri(assetGraph, undefined, { update: true });
+      await assetGraphSri(assetGraph, { update: true });
 
       const htmlAsset = assetGraph.findAssets({ type: 'Html' })[0];
       expect(
@@ -40,7 +40,7 @@ describe('assetgraph-sri', function() {
         });
         await assetGraph.loadAssets('index.html');
         await assetGraph.populate();
-        await assetGraphSri(assetGraph, undefined, {
+        await assetGraphSri(assetGraph, {
           update: true,
           algorithm: 'sha384'
         });
@@ -66,7 +66,7 @@ describe('assetgraph-sri', function() {
       });
       await assetGraph.loadAssets('index.html');
       await assetGraph.populate();
-      await assetGraphSri(assetGraph, undefined, { update: true });
+      await assetGraphSri(assetGraph, { update: true });
 
       const htmlAsset = assetGraph.findAssets({ type: 'Html' })[0];
       expect(
@@ -91,7 +91,7 @@ describe('assetgraph-sri', function() {
         assetGraph.on('warn', warnSpy);
         await assetGraph.loadAssets('index.html');
         await assetGraph.populate();
-        await assetGraphSri(assetGraph, undefined, {
+        await assetGraphSri(assetGraph, {
           update: true,
           single: true
         });
@@ -133,7 +133,7 @@ describe('assetgraph-sri', function() {
       assetGraph.on('warn', warnSpy);
       await assetGraph.loadAssets('index.html');
       await assetGraph.populate();
-      await assetGraphSri(assetGraph, undefined, { update: false });
+      await assetGraphSri(assetGraph, { update: false });
 
       expect(warnSpy, 'to have calls satisfying', () => {
         warnSpy(
@@ -157,7 +157,7 @@ describe('assetgraph-sri', function() {
       assetGraph.on('warn', warnSpy);
       await assetGraph.loadAssets('index.html');
       await assetGraph.populate();
-      await assetGraphSri(assetGraph, undefined, { update: false });
+      await assetGraphSri(assetGraph, { update: false });
 
       expect(warnSpy, 'to have calls satisfying', []);
     });
